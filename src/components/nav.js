@@ -22,25 +22,45 @@ export default function Nav() {
       <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
         <Route>
           <List>
-            <ListItem button component={Link} to="/">
+            <ListItem
+              button
+              onClick={() => setOpen(false)}
+              component={Link}
+              to="/"
+            >
               <ListItemIcon>
                 <HomeIcon />
               </ListItemIcon>
               <ListItemText>Home</ListItemText>
             </ListItem>
-            <ListItem button component={Link} to="/spending">
+            <ListItem
+              button
+              onClick={() => setOpen(false)}
+              component={Link}
+              to="/spending"
+            >
               <ListItemIcon>
                 <AttachMoneyIcon />
               </ListItemIcon>
               <ListItemText>Spending</ListItemText>
             </ListItem>
-            <ListItem button component={Link} to="/saving">
+            <ListItem
+              button
+              onClick={() => setOpen(false)}
+              component={Link}
+              to="/saving"
+            >
               <ListItemIcon>
                 <AccountBalanceIcon />
               </ListItemIcon>
               <ListItemText>Saving</ListItemText>
             </ListItem>
-            <ListItem button component={Link} to="/goals">
+            <ListItem
+              button
+              onClick={() => setOpen(false)}
+              component={Link}
+              to="/goals"
+            >
               <ListItemIcon>
                 <CheckCircleIcon />
               </ListItemIcon>
