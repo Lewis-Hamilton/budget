@@ -17,10 +17,14 @@ export default function Spending() {
   const [percentBigSpending, setPercentBigSpending] = useState(0);
 
   const calculateSpending = () => {
-    setPercentBigSpending(1 - percentDailySpending);
     setTotalSpending(initialAmount);
     setDailySpending(initialAmount * percentDailySpending);
     setBigSpending(initialAmount * percentBigSpending);
+  };
+
+  const calculatePercent = (e) => {
+    setPercentDailySpending(e.target.value);
+    setPercentBigSpending(1 - e.target.value);
   };
 
   return (
@@ -44,7 +48,7 @@ export default function Spending() {
           <InputLabel>Percent</InputLabel>
           <Select
             value={percentDailySpending}
-            onChange={(e) => setPercentDailySpending(e.target.value)}
+            onChange={(e) => calculatePercent(e)}
           >
             <MenuItem value={0.1}>10%</MenuItem>
             <MenuItem value={0.2}>20%</MenuItem>
