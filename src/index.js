@@ -3,36 +3,8 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { createStore } from "redux";
-import { Provider, connect } from "react-redux";
 
-const countReducer = function (state = 0, action) {
-  switch (action.type) {
-    case "INCREMENT":
-      return state + 1;
-    case "DECREMENT":
-      return state - 1;
-    default:
-      return state;
-  }
-};
-
-const mapStateToProps = (state) => {
-  return {
-    count: state,
-  };
-};
-
-let store = createStore(countReducer);
-const Component = ({ count }) => <h1>Helloworld React & Redux! {count}</h1>;
-const Container = connect(mapStateToProps)(Component);
-
-ReactDOM.render(
-  <Provider store={store}>
-    <Container />
-  </Provider>,
-  document.getElementById("root")
-);
+ReactDOM.render(<App />, document.getElementById("root"));
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
