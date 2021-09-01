@@ -7,9 +7,10 @@ import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
+import { useSelector, useDispatch } from "react-redux";
 
 export default function Spending() {
-  const [initialAmount, setInitialAmount] = useState(0);
+  const initialAmount = useSelector((state) => state.userAmount);
   const [totalSpending, setTotalSpending] = useState(0);
   const [dailySpending, setDailySpending] = useState(0);
   const [bigSpending, setBigSpending] = useState(0);
@@ -29,12 +30,13 @@ export default function Spending() {
 
   return (
     <Grid>
+      <p>{initialAmount}</p>
       <Grid item>
-        <TextField
+        {/* <TextField
           label="Initial amount"
           variant="outlined"
           onChange={(e) => setInitialAmount(e.target.value)}
-        ></TextField>
+        ></TextField> */}
         <Button onClick={() => calculateSpending()}>Calculate</Button>
       </Grid>
       <Grid item>
