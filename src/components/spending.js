@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 export default function Spending() {
-  const initialAmount = useSelector((state) => state.userAmount);
+  const initialAmount = parseInt(useSelector((state) => state.userAmount));
   const [totalSpending, setTotalSpending] = useState(0);
   const [dailySpending, setDailySpending] = useState(0);
   const [bigSpending, setBigSpending] = useState(0);
@@ -32,11 +31,6 @@ export default function Spending() {
     <Grid>
       <p>{initialAmount}</p>
       <Grid item>
-        {/* <TextField
-          label="Initial amount"
-          variant="outlined"
-          onChange={(e) => setInitialAmount(e.target.value)}
-        ></TextField> */}
         <Button onClick={() => calculateSpending()}>Calculate</Button>
       </Grid>
       <Grid item>

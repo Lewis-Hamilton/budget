@@ -13,9 +13,9 @@ export default function roootReducer(state = initialState, action) {
   }
 }
 
-export const addTest = (note) => {
+export const addTest = (initialAmount) => {
   return {
     type: "TESTING",
-    text: note,
+    text: initialAmount,
   };
 };
