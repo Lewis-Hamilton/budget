@@ -3,6 +3,9 @@ import { useDispatch } from "react-redux";
 import { addTest } from "../reducers/rootReducer";
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,11 +21,14 @@ export default function Home() {
 
   return (
     <Box className={classes.root}>
-      <h1>Please Enter Dollar amount to add to savings</h1>
-      <input onChange={(e) => setInitialAmount(e.target.value)}></input>
-      <button onClick={() => dispatch(addTest(initialAmount))}>
+      <Typography>Please Enter Dollar amount to add to savings</Typography>
+      <TextField
+        variant="outlined"
+        onChange={(e) => setInitialAmount(e.target.value)}
+      ></TextField>
+      <Button onClick={() => dispatch(addTest(initialAmount))}>
         Calculate
-      </button>
+      </Button>
     </Box>
   );
 }
