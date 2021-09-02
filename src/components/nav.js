@@ -11,14 +11,25 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import { Link, Route } from "react-router-dom";
+import AppBar from "@material-ui/core/AppBar";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    justifyContent: "right",
+  },
+}));
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+  const classes = useStyles();
   return (
-    <div>
-      <IconButton onClick={() => setOpen(true)}>
-        <MenuIcon />
-      </IconButton>
+    <>
+      <AppBar position="static">
+        <IconButton className={classes.root} onClick={() => setOpen(true)}>
+          <MenuIcon />
+        </IconButton>
+      </AppBar>
       <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
         <Route>
           <List>
@@ -69,6 +80,6 @@ export default function Nav() {
           </List>
         </Route>
       </Drawer>
-    </div>
+    </>
   );
 }
