@@ -13,22 +13,35 @@ import ListItemText from "@material-ui/core/ListItemText";
 import { Link, Route } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
 import { makeStyles } from "@material-ui/core/styles";
+import { Typography } from "@material-ui/core";
+import Toolbar from "@material-ui/core/Toolbar";
+import { useSelector } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    justifyContent: "right",
+    marginLeft: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
   },
 }));
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+  const title = useSelector((state) => state.title);
   const classes = useStyles();
+  console.log(title);
   return (
     <>
       <AppBar position="static">
-        <IconButton className={classes.root} onClick={() => setOpen(true)}>
-          <MenuIcon />
-        </IconButton>
+        <Toolbar>
+          <Typography variant="h6" className={classes.title}>
+            {title}
+          </Typography>
+          <IconButton className={classes.root} onClick={() => setOpen(true)}>
+            <MenuIcon />
+          </IconButton>
+        </Toolbar>
       </AppBar>
       <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
         <Route>

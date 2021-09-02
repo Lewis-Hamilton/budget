@@ -4,7 +4,9 @@ import Typography from "@material-ui/core/Typography";
 import { useSelector } from "react-redux";
 
 export default function Spending() {
-  const initialAmount = parseInt(useSelector((state) => state.userAmount));
+  const initialAmount = parseInt(
+    useSelector((state) => state.paycheckReducer.paycheck)
+  );
   const [totalSpending, setTotalSpending] = useState(0);
   const [dailySpending, setDailySpending] = useState(0);
   const [bigSpending, setBigSpending] = useState(0);

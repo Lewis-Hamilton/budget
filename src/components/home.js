@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTest } from "../reducers/rootReducer";
+import { addPaycheck } from "../redux/reducers/paycheckReducer";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
@@ -17,6 +17,10 @@ export default function Home() {
   const [initialAmount, setInitialAmount] = useState(0);
   const dispatch = useDispatch();
   const classes = useStyles();
+
+  useEffect(() => {
+    dispatch({ type: "HOME" });
+  });
 
   return (
     <Grid
@@ -37,7 +41,7 @@ export default function Home() {
         <Button
           size="large"
           variant="contained"
-          onClick={() => dispatch(addTest(initialAmount))}
+          onClick={() => dispatch(addPaycheck(initialAmount))}
         >
           Calculate
         </Button>
