@@ -28,9 +28,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
-  const title = useSelector((state) => state.title);
+  const title = useSelector((state) => state.navReducer.title);
   const classes = useStyles();
-  console.log(title);
   return (
     <>
       <AppBar position="static">

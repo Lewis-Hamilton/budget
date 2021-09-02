@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 export default function Saving() {
   const initialAmount = parseInt(

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 export default function Spending() {
   const initialAmount = parseInt(
@@ -10,9 +10,11 @@ export default function Spending() {
   const [totalSpending, setTotalSpending] = useState(0);
   const [dailySpending, setDailySpending] = useState(0);
   const [bigSpending, setBigSpending] = useState(0);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     calculateSpending();
+    dispatch({ type: "SPENDING" });
   });
 
   const calculateSpending = () => {
