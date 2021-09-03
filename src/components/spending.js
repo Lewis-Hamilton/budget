@@ -16,54 +16,29 @@ export default function Spending() {
   const [categoryName, setCategoryName] = useState("");
   const [categoryPercent, setCategoryPercent] = useState(0);
   const [spendingCategories, setSpendingCategories] = useState([]);
-  const percentages = [
-    {
-      name: "10%",
-      value: 0.1,
-    },
-    {
-      name: "20%",
-      value: 0.2,
-    },
-    {
-      name: "30%",
-      value: 0.3,
-    },
-    {
-      name: "40%",
-      value: 0.4,
-    },
-    {
-      name: "50%",
-      value: 0.5,
-    },
-    {
-      name: "60%",
-      value: 0.6,
-    },
-    {
-      name: "70%",
-      value: 0.7,
-    },
-    {
-      name: "80%",
-      value: 0.8,
-    },
-    {
-      name: "90%",
-      value: 0.9,
-    },
-    {
-      name: "100%",
-      value: 1,
-    },
-  ];
+  const [percentages, setPercentages] = useState([]);
+  var tempArray = [];
+  var percentName = 0;
+  var percentValue = 0;
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     calculateSpending();
     dispatch({ type: "SPENDING" });
   });
+
+  useEffect(() => {
+    for (var i = 1; i <= 10; i++) {
+      percentName = percentName + 10;
+      percentValue = percentValue + 0.1;
+      tempArray = tempArray.concat({
+        name: percentName,
+        value: Math.round(percentValue * 10) / 10,
+      });
+    }
+    setPercentages(tempArray);
+  }, []);
 
   const calculateSpending = () => {
     setTotalSpending(initialAmount * 0.5);
@@ -85,7 +60,9 @@ export default function Spending() {
           onChange={(e) => setCategoryPercent(e.target.value)}
         >
           {percentages.map((percentages) => (
-            <MenuItem value={percentages.value}>{percentages.name}</MenuItem>
+            <MenuItem key={percentages.name} value={percentages.value}>
+              {percentages.name + "%"}
+            </MenuItem>
           ))}
         </Select>
       </Grid>
