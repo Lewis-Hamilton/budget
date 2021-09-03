@@ -7,10 +7,10 @@ import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(() => ({
-  grid: {
-    position: "absolute",
-    top: "50%",
-  },
+  // grid: {
+  //   position: "absolute",
+  //   top: "50%",
+  // },
 }));
 
 export default function Home() {
@@ -27,7 +27,6 @@ export default function Home() {
       container
       direction="column"
       alignItems="center"
-      spacing={2}
       className={classes.grid}
     >
       <Grid item>
