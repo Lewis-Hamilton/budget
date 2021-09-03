@@ -7,10 +7,10 @@ import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(() => ({
-  // grid: {
-  //   position: "absolute",
-  //   top: "50%",
-  // },
+  grid: {
+    position: "absolute",
+    top: "50%",
+  },
 }));
 
 export default function Home() {
