@@ -7,10 +7,14 @@ import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(() => ({
-  // grid: {
-  //   position: "absolute",
-  //   top: "50%",
-  // },
+  grid: {
+    position: "absolute",
+    top: "50%",
+  },
+  button: {
+    background: "linear-gradient(315deg, #3bb78f 0%, #0bab64 74%)",
+    color: "white",
+  },
 }));
 
 export default function Home() {
@@ -40,6 +44,7 @@ export default function Home() {
         <Button
           size="large"
           variant="contained"
+          className={classes.button}
           onClick={() => dispatch(addPaycheck(initialAmount))}
         >
           Calculate

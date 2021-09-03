@@ -20,9 +20,20 @@ import { useSelector } from "react-redux";
 const useStyles = makeStyles((theme) => ({
   root: {
     marginLeft: theme.spacing(2),
+    color: "white",
   },
   title: {
     flexGrow: 1,
+  },
+  appbar: {
+    background: "linear-gradient(315deg, #3bb78f 0%, #0bab64 74%)",
+  },
+  paper: {
+    background: "linear-gradient(315deg, #000000 0%, #414141 74%)",
+    color: "white",
+  },
+  icon: {
+    color: "white",
   },
 }));
 
@@ -32,7 +43,7 @@ export default function Nav() {
   const classes = useStyles();
   return (
     <>
-      <AppBar position="static">
+      <AppBar className={classes.appbar} position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
             {title}
@@ -42,7 +53,12 @@ export default function Nav() {
           </IconButton>
         </Toolbar>
       </AppBar>
-      <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
+      <Drawer
+        classes={{ paper: classes.paper }}
+        anchor="right"
+        open={open}
+        onClose={() => setOpen(false)}
+      >
         <Route>
           <List>
             <ListItem
@@ -52,7 +68,7 @@ export default function Nav() {
               to="/"
             >
               <ListItemIcon>
-                <HomeIcon />
+                <HomeIcon className={classes.icon} />
               </ListItemIcon>
               <ListItemText>Home</ListItemText>
             </ListItem>
@@ -63,7 +79,7 @@ export default function Nav() {
               to="/spending"
             >
               <ListItemIcon>
-                <AttachMoneyIcon />
+                <AttachMoneyIcon className={classes.icon} />
               </ListItemIcon>
               <ListItemText>Spending</ListItemText>
             </ListItem>
@@ -74,7 +90,7 @@ export default function Nav() {
               to="/saving"
             >
               <ListItemIcon>
-                <AccountBalanceIcon />
+                <AccountBalanceIcon className={classes.icon} />
               </ListItemIcon>
               <ListItemText>Saving</ListItemText>
             </ListItem>
@@ -85,7 +101,7 @@ export default function Nav() {
               to="/goals"
             >
               <ListItemIcon>
-                <CheckCircleIcon />
+                <CheckCircleIcon className={classes.icon} />
               </ListItemIcon>
               <ListItemText>Goals</ListItemText>
             </ListItem>
